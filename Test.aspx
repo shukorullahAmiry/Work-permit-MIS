@@ -9,20 +9,25 @@
 <body>
     <form id="form1" runat="server">
     <div>
+        
+        <p>
+            <h1>User's Public IP : <asp:Label runat="server" ID="uxUserIP"></asp:Label></h1>
+        </p>
+        
         <pre>
 
-            Input:      <asp:TextBox ID="uxDecoded" runat="server"></asp:TextBox>
-                        
-            Decoded:    <asp:TextBox ID="uxEncoded" runat="server"></asp:TextBox>
+            Input:      <asp:TextBox runat="server" ID="uxInput" Width="900PX"></asp:TextBox>
 
+            
+            <asp:Button runat="server" ID="uxEncrypt" Text ="Encrypt" OnClick="Encrypt" />  <asp:Button runat="server" ID="uxDecrypt" Text ="Decrypt" OnClick="Decrypt" />
 
-            <asp:Button ID="uxEncode" runat="server" OnClick="uxEncode_Click" Text="Encode URI" />
+            
+            <asp:Label runat="server" ID="Label1" Font-Size="Large" Font-Bold="true" ForeColor="Black" Text="Encrypted: "></asp:Label> <asp:Label runat="server" ID="uxEncrypted" Font-Size="Large" Font-Bold="true" ForeColor="Green" ></asp:Label>
 
-            <asp:Button ID="uxDecode" runat="server" Text="Decode URL" OnClick="uxDecode_Click" />
-
+            <asp:Label runat="server" ID="Label2" Font-Size="Large" Font-Bold="true" ForeColor="Black" Text="Decrypted: "></asp:Label> <asp:Label runat="server" ID="uxDecrypted" Font-Size="Large" Font-Bold="true" ForeColor="Goldenrod" ></asp:Label>
         </pre>
-    
     </div>
+
     </form>
 </body>
 </html>
