@@ -1,19 +1,227 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
-</head>
-<body>
-    Routing to your page...
-    <script type="text/javascript">
-        var loc = window.location, href = loc.href, l = href.length, hash = '#' + window.location.hash;
-        //window.location.href = href.substr(0, l - hash.length).replace('#', '') + '/page/portal/' + hash;
-        //window.location.href = "//asanwazifa.com/AsanWazifa/page/portal/" + hash  
-        window.location.href = href.substr(0, l - hash.length).replace('#', '') + '/security/router/' + hash;
+    <title>MoLSAMD :: Asan Wazifa ::</title>
+    <link href="http://localhost/asanwazifa/skin/style/default.css" rel="stylesheet" />
+    <!--<link href="http://localhost/asanwazifa/skin/style/asanwazifa.css" rel="stylesheet" />-->
+    <link href="http://localhost/asanwazifa/skin/style/form.css" rel="stylesheet" />
+    <link href="http://localhost/asanwazifa/skin/style/form.mobile.css" rel="stylesheet" />
+    <link href="http://localhost/asanwazifa/skin/style/autocomplete.css" rel="stylesheet" />
 
+    <script src="http://localhost/apiplus/js/external/jquery/jquery-2.1.4.min.js"></script>
+    <script src="http://localhost/apiplus/js/debug/plus-v1.0.0.001.js"></script>
+    <script src="http://localhost/apiplus/js/debug/api/plus.security-v1.0.0.001.js"></script>
+    <script src="http://localhost/apiplus/js/debug/api/plus.list-v1.0.0.001.js"></script>
+    <script src="http://localhost/apiplus/js/debug/api/plus.Observers-v1.0.0.001.js"></script>
+    <script src="http://localhost/apiplus/js/debug/api/plus.autocomplete-v1.0.0.001.js"></script>
+
+    <script src="js/portal-v2.0.js"></script>
+    <script src="js/plus.security.extended.js"></script>
+
+    <script type="text/javascript" Type="text/javascript">
+        $(document).ready(function () {
+            plus.init();
+            var _url = window.location.protocol + "//" + window.location.host + "/";
+            var _uHost = _url;
+            if (_url.indexOf("asanwazifa") == -1) _url = _url + "AsanWazifa/";
+
+            plus.config.portal = _url;
+            plus.config.baseUrl = _url;
+            plus.api.baseUrl = _uHost + "apiplus/js/debug/api/";
+            plus.api.repository = _uHost + "apiplus/";
+
+            plus.portal.init();
+
+            $('#uxAdvanceSearch').click(function () {
+                $('#filter').slideToggle();
+            });
+        });
 
     </script>
+    <style type="text/css">
+        .fb_iframe_widget {
+            padding-left: 5px;
+            margin-top: -2px;
+        }
+    </style>
+
+</head>
+<body style="direction:rtl; background:#fff" class="rtl">
+    <div class="wrapper">
+        <div id="top" class="div-top">
+            <div id="logo" class="div-logo">
+                <a class="logo" href="http://localhost/asanwazifa/">
+                    <img src="skin/logo/afghanistan_60.png" class="colored" />
+                    <img src="skin/logo/afghanistan_white.png" class="white" />
+                    <h1 style="margin:10px 0px; padding:5px 0">آسان وظيفه</h1>
+                </a>
+            </div>
+            <div class="user-info">
+                <div class="user">
+                    <div class="user-icon">
+                        <img src="http://localhost/asanwazifa/skin/icon/circle-user-green.png" />
+                        <!--<span class="user-init">U</span>-->
+                    </div>
+
+                    <span id="userName"></span>
+                </div>
+                <div class="arrow arrow-back"></div>
+                <div class="arrow"></div>
+                <div class="member-box">
+                    <div class="member-summary">
+                        <div>
+                            <a href="http://localhost/asanwazifa/page/portal/profile/preview" target="_blank">
+                                <img class="member-logo" src="http://localhost/asanwazifa/skin/icon/circle-user-white.png" height="40px">
+                            </a>
+                        </div>
+                        <div style="margin-left:10px;">
+                            <header>
+                                <h3 style="padding: 0px !important; margin: 6px 0px;"><a class="user-name" style="color: #262626; font-weight: bold; text-decoration: none;"></a></h3>
+                            </header>
+                            <a class="profile-button">&nbsp;</a>
+                        </div>
+                    </div>
+                    <div class="profile-action" style="border-top: 1px solid rgb(13, 135, 100); min-height: 80px; background-color: #78aeca;">
+                        <div class="action">
+                            <a href="http://localhost/asanwazifa/security/user/account">
+                                <img src="http://localhost/asanwazifa/skin/icon/ads-white-30.png" />
+                                <span>تنظیم اعلانات</span>
+                            </a>
+                        </div>
+                        <div class="action">
+                            <a href="http://localhost/asanwazifa/security/user/credential">
+                                <img src="http://localhost/asanwazifa/skin/icon/password-30-white.png" />
+                                <span>تغییر رمز</span>
+                            </a>
+                        </div>
+                        <div class="action">
+                            <a href="http://localhost/asanwazifa/security/logoff">
+                                <img src="http://localhost/asanwazifa/skin/icon/logout-white-30.png" />
+                                <span>خروج</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="http://localhost/asanwazifa/ps/" class="button lang">پښتو</a>
+            </div>
+
+        </div>
+        <div id="search" class="div-search-bar">
+            <div class="cover">
+                <h1>جستجو</h1>
+                <div class="search">
+                    <input type="text" id="uxCriteria" autocomplete="off" spellcheck="false" placeholder="جستجو " />
+                    <input type="image" id="uxSearch" src="http://localhost/asanwazifa/skin/icon/search1.png" />
+
+                </div>
+                <div class="options">
+                    <input id="uxSearchJob" name="uxSearchJob" type="checkbox"><label for="uxSearchJob">وظيفه</label>
+                    <input id="uxSearchTraining" name="uxSearchTraining" type="checkbox"><label for="uxSearchTraining">آموزش</label>
+                    <img src="http://localhost/asanwazifa/skin/icon/arrowDown3.png" id="uxAdvanceSearch" style="display:none;" class="AdvanceSearch" />
+                </div>
+            </div>
+        </div>
+        <div class="div-content full">
+            <div class="div-screen clearfix">
+                <div class="jobs ad-box">
+                    <div style="background: #F7CC45">
+                        <img src="http://localhost/asanwazifa/skin/icon/jobs.png" />
+                    </div>
+                    <a class="noeffect" href="http://localhost/asanwazifa/page/portal/?t=j&&q=New"><span class="title">اعلانات کاریابی</span></a>
+                    <span class="count">۰</span>
+                    <span class="details">برای تعين مسير زندگی خویش از لست وظايف جديد انتخاب نمايد</span>
+                    <a href="http://localhost/asanwazifa/security/router/?ref=RegisterJob" class="button flat search-all register job">ثبت وظیفه</a>
+                </div>
+                <div class="trainings ad-box">
+                    <div style="background: #78AECA">
+                        <img src="http://localhost/asanwazifa/skin/icon/trainings.png" />
+                    </div>
+                    <a class="noeffect" href="http://localhost/asanwazifa/page/portal/?t=t&&q=New"><span class="title">آموزش های جديد</span></a>
+                    <span class="count">۰</span>
+                    <span class="details">شما ميتوانيد که در بخش های مختلف آموزش دريافت نمايد</span>
+                    <a href="http://localhost/asanwazifa/security/router/?ref=RegisterTraining" class="button flat register training">ثبت آموزش</a>
+                </div>
+                <div class="org ad-box">
+                    <div style="background: #75C787">
+                        <img src="http://localhost/asanwazifa/skin/icon/Organizations.png" />
+                    </div>
+                    <a class="noeffect" href="http://localhost/asanwazifa/page/portal/?t=org&&q=New"><span class="title">ادارات استخدام کننده</span></a>
+                    <span class="count">۰</span>
+                    <span class="details">ادارات دولتی و غیر دولتی ثبت شده در بخش های وظیفه و آموزش</span>
+                    <a href="http://localhost/asanwazifa/security/router/?ref=RegisterOrganization" class="button flat  register org">ثبت اداره</a>
+                </div>
+                <div class="employees ad-box">
+                    <div style="background: #08899E">
+                        <img src="http://localhost/asanwazifa/skin/icon/experts.png" />
+                    </div>
+                    <a class="noeffect" href="http://localhost/asanwazifa/page/portal/?t=tr&&q=New"><span class="title">متقاضیان کار و آموزش</span></a>
+                    <span class="count">۰</span>
+                    <span class="details">برای دریافت وظیفه و یا آموزش با ما راجستر نمایید</span>
+                    <a href="http://localhost/asanwazifa/security/router/?ref=FindExperts" class="button flat  register person">دریافت کادر</a>
+                </div>
+
+                <div id="uxResult" class="div-Result" style="display:none;">
+                    <templ>
+                        <div class="div-data {type}">
+                            <div class="title">
+                                {Title} <br />
+                                <span style="font:lighter 0.7em/12px arial">   {ReferenceNo} :#</span>
+                            </div>
+
+                            <div class="company">
+                                {Organization}
+                            </div>
+                            <div class="Description">
+
+                                <img src="http://localhost/asanwazifa/skin/icon/locationpoint.png" style="float: right; width: 14px; margin: 3px 0 0 4px" /> {Location}
+                                <br />
+                                <span style=" border-bottom: 1px dotted #ebebeb; display: block; margin: 0 0 -10px;"> کتگوری : {FunctionalArea} </span>
+                                <br />
+                                <span style=" border-bottom: 1px dotted #ebebeb; display: block;">  {Level}  </span>
+                                <div style="display:block">
+                                    <img src="http://localhost/asanwazifa/skin/icon/calendar.png" style="float: right; width: 14px; margin: 3px 0 0 4px" />{ClosingDate_Shamsi}
+                                </div>
+                            </div>
+                            <a target="_blank" href="http://localhost/asanwazifa/page/portal/ads/{type}/{id}/preview.aspx" action="view" onclick="return plus.portal.ads.view({id}, '{type}');" id="uxView">نمایش</a>
+
+                            <div class="socialMedia"></div>
+                        </div>
+                    </templ>
+                </div>
+            </div>
+            <div class="social toLeft">
+
+            </div>
+        </div>
+        <div class="div-footer">
+            <div class="footer-wrapper">
+                <div class="div-sponsors">
+                    <div class="div-sponsor wgt800">
+                        <div>
+                            <img src="http://localhost/asanwazifa/skin/logo/MOLSAMD.png" class="img-logo" style="opacity: 0.6;" />
+                        </div>
+                        <div class="org-detail" style="">
+                            <h1>جمهوری اسلامی افغانستان</h1>
+                            <h2><a href="http://molsamd.gov.af">وزارت کار، امور اجتماعی، شهدا و معلولین </a></h2>
+                        </div>
+                    </div>
+                    <div class="div-sponsor">
+                        <div>
+                            <img src="http://localhost/asanwazifa/skin/logo/afghanistan_white.png" class="img-logo" style="width:70px;padding:5px " />
+                        </div>
+                        <div class="org-detail" style="">
+                            <h1>جمهوری اسلامی افغانستان</h1>
+                            <h2>وزارت مالیه</h2>
+                            <h3 class="always"><a target="_blank" href="http://asan.gov.af">آسان خدمت</a></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="div-menu" role="menu">
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
-
-
 </html>
